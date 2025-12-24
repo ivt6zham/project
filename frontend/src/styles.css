@@ -1,6 +1,0 @@
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-nav { background: #f3f3f3; border-bottom: 1px solid #ddd; }
-.container { padding: 16px; }
-form { display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
-input { padding: 8px; font-size: 14px; }
-button { padding: 8px 12px; }
