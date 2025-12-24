@@ -28,6 +28,23 @@ def init_db() -> None:
             password TEXT NOT NULL,
             salt TEXT NOT NULL
         );
+        CREATE TABLE IF NOT EXISTS locations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL
+        );
+        CREATE TABLE IF NOT EXISTS sensors (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            location_id INTEGER NOT NULL,
+            code TEXT NOT NULL,
+            FOREIGN KEY (location_id) REFERENCES locations (id)
+        );
+        CREATE TABLE IF NOT EXISTS readings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            sensor_id INTEGER NOT NULL,
+            ts TEXT NOT NULL,
+            value REAL NOT NULL,
+            FOREIGN KEY (sensor_id) REFERENCES sensors (id)
+        );
         """
     )
     db.commit()
